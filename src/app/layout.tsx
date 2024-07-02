@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientProvider from "@/util/Providers";
-import Layout from "@/layout/layout";
+import Layout from "@/layout/Layout";
 
 export const metadata: Metadata = {
     title: "form-next-js",
