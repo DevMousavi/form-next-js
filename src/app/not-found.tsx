@@ -11,7 +11,7 @@ const NotFound = () => {
     };
 
     return (
-        <div className="bg-white shadowLayOut w-96 h-96 mx-auto mt-14 flex items-center justify-start rounded-md overflow-hidden">
+        <div className="bg-white shadowLayOut w-96 h-96 mx-auto flex items-center justify-start rounded-md overflow-hidden">
             <span className="flex flex-col items-center gap-6 justify-center h-full w-full px-4 py-10">
                 <h1 className="font-medium shadowLayOut h-9 px-7 rounded-full flex items-center justify-center text-primaryColor ">
                     این صفحه یافت نشد
