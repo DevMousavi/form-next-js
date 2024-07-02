@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientProvider from "@/util/Providers";
+import Layout from "@/layout/layout";
 
 export const metadata: Metadata = {
     title: "form-next-js",
@@ -15,7 +16,9 @@ export default function RootLayout({
     return (
         <html lang="fa" dir="rtl">
             <body>
-                <ClientProvider>{children}</ClientProvider>
+                <ClientProvider>
+                    <Layout>{children}</Layout>
+                </ClientProvider>
             </body>
         </html>
     );
