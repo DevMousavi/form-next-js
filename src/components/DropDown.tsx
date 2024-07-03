@@ -41,7 +41,12 @@ const Dropdown = (props: {
         <div className="flex w-[80%] mx-auto border-2 border-solid rounded-xl border-[rgb(124, 58, 237)] flex-wrap md:flex-nowrap gap-4">
             <Select label={props.label} className="max-w-xs">
                 {listData?.map((item) => (
-                    <SelectItem key={item.id}>{item.name}</SelectItem>
+                    <SelectItem
+                        key={item.id}
+                        className="text-primaryColor font-bold"
+                    >
+                        {item.name}
+                    </SelectItem>
                 ))}
             </Select>
         </div>

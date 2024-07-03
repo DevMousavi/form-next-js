@@ -1,3 +1,4 @@
+import InputText from "../../components/InputText";
 import Dropdown from "../../components/DropDown";
 import React from "react";
 
@@ -24,6 +25,7 @@ const page = () => {
                 label={"لیست دسته بندی ها"}
                 dataSend={dataSend}
             />
+            <InputText label={"اسم"} />
         </div>
     );
 };
