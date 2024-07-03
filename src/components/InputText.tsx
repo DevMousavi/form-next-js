@@ -1,6 +1,21 @@
 import React from "react";
 
-const InputText = ({ label }: { label: string }) => {
+const InputText = ({
+    label,
+    setFormData,
+    formNameItem,
+}: {
+    label: string;
+    setFormData: React.Dispatch<React.SetStateAction<FormData[]>>;
+    formNameItem: string;
+}) => {
+    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
+    };
     return (
         <>
             <div className="coolinput">
@@ -10,11 +25,11 @@ const InputText = ({ label }: { label: string }) => {
                 <input
                     type="text"
                     placeholder={`${label} را وارد کنید...`}
-                    name="input"
+                    name={formNameItem}
                     className="input"
+                    onChange={changeHandler}
                 />
             </div>
-            ;
         </>
     );
 };

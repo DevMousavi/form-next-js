@@ -1,8 +1,13 @@
+"use client";
+
 import InputText from "../../components/InputText";
 import Dropdown from "../../components/DropDown";
-import React from "react";
+import React, { useState } from "react";
 
 const page = () => {
+    const [formData, setFormData] = useState<FormData[]>([]);
+    console.log("formData : ", formData);
+
     const dataSend = {
         totalCount: 0,
         pageIndex: 0,
@@ -24,8 +29,14 @@ const page = () => {
                 url={"/Sale/v1/Category/hidigimenu/List/1"}
                 label={"لیست دسته بندی ها"}
                 dataSend={dataSend}
+                setFormData={setFormData}
+                name="categoriesId"
             />
-            <InputText label={"اسم"} />
+            <InputText
+                label={"اسم"}
+                setFormData={setFormData}
+                formNameItem="name"
+            />
         </div>
     );
 };

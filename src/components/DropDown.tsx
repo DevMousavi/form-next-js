@@ -12,6 +12,8 @@ const Dropdown = (props: {
     url: string;
     label: string;
     dataSend: senData;
+    setFormData: React.Dispatch<React.SetStateAction<FormData[]>>;
+    name: string;
 }): JSX.Element => {
     const [listData, setListData] = useState<result[]>([]);
 
@@ -33,13 +35,22 @@ const Dropdown = (props: {
         });
     }, []);
 
-    if (listData?.length == 0) {
-        return <Loader />;
-    }
+    const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const { name, value } = event.target;
+        props.setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
+    };
 
     return (
         <div className="flex w-[80%] mx-auto border-2 border-solid rounded-xl border-[rgb(124, 58, 237)] flex-wrap md:flex-nowrap gap-4">
-            <Select label={props.label} className="max-w-xs">
+            <Select
+                name={props.name}
+                label={listData?.length == 0 ? "در حال پردازش" : props.label}
+                className="max-w-xs"
+                onChange={changeHandler}
+            >
                 {listData?.map((item) => (
                     <SelectItem
                         key={item.id}
