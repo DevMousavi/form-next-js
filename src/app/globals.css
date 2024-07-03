@@ -78,6 +78,25 @@
         padding: 2px 6px;
         font-size: 14px;
     }
+    .containerTextShadow {
+        box-shadow: 1px 1px 15px rgb(124, 58, 237);
+    }
+    .dropDownContainer {
+        width: 80%;
+        padding: 5px 10px;
+        border: 1px solid rgb(124, 58, 237);
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .labelContainer {
+        cursor: pointer;
+        color: rgb(124, 58, 237);
+        font-size: 14px;
+        text-wrap: nowrap;
+    }
 }
 
 * {
