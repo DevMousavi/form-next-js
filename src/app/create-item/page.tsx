@@ -2,6 +2,14 @@ import Dropdown from "../../components/DropDown";
 import React from "react";
 
 const page = () => {
+    const dataSend = {
+        totalCount: 0,
+        pageIndex: 0,
+        itemsPerPage: 0,
+        items: "null",
+        sortBy: "id",
+        sortOrder: 0,
+    };
     return (
         <div className="mobileContainer shadowLayOut  py-9 items-center justify-start flex-col gap-4">
             <h2 className="font-bold text-primaryColor flex flex-row-reverse gap-2 items-center justify-center border border-solid border-primaryColor px-3 py-2 rounded-md containerTextShadow">
@@ -14,14 +22,7 @@ const page = () => {
             <Dropdown
                 url={"/Sale/v1/Category/hidigimenu/List/1"}
                 label={"لیست دسته بندی ها"}
-                dataSend={{
-                    totalCount: 0,
-                    pageIndex: 0,
-                    itemsPerPage: 0,
-                    items: "null",
-                    sortBy: "id",
-                    sortOrder: 0,
-                }}
+                dataSend={dataSend}
             />
         </div>
     );

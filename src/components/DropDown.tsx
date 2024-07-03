@@ -5,12 +5,14 @@ import { api } from "../services/config";
 import React, { useEffect, useState } from "react";
 import { result, senData } from "@/util/Types";
 
+import { Select, SelectItem } from "@nextui-org/react";
+
 const Dropdown = (props: {
     url: string;
     label: string;
     dataSend: senData;
 }): JSX.Element => {
-    const [listData, setListData] = useState<result[] | null>(null);
+    const [listData, setListData] = useState<result[]>([]);
 
     const { mutate } = useMutation({
         mutationFn: async (data: senData): Promise<any> => {
@@ -30,25 +32,18 @@ const Dropdown = (props: {
         });
     }, []);
 
+    if (listData?.length == 0) {
+        return <div>Loading...</div>;
+    }
+
     return (
-        <>
-            <div className="dropDownContainer">
-                <label className="labelContainer" htmlFor="mealType">
-                    {props.label}
-                </label>
-                <select
-                    className="outline-none w-full cursor-pointer"
-                    id="mealType"
-                >
-                    <option>{""}</option>
-                    {listData?.map((item) => (
-                        <option value={item.id} key={item.id}>
-                            {item.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-        </>
+        <div className="flex w-[80%] mx-auto border-2 border-solid rounded-xl border-[rgb(124, 58, 237)] flex-wrap md:flex-nowrap gap-4">
+            <Select label={props.label} className="max-w-xs">
+                {listData?.map((item) => (
+                    <SelectItem key={item.id}>{item.name}</SelectItem>
+                ))}
+            </Select>
+        </div>
     );
 };
 

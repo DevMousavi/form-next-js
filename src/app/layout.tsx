@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientProvider from "@/util/Providers";
 import Layout from "@/layout/Layout";
+import { NextUIProvider } from "@nextui-org/react";
 
 export const metadata: Metadata = {
     title: "form-next-js",
@@ -17,7 +18,9 @@ export default function RootLayout({
         <html lang="fa" dir="rtl">
             <body>
                 <ClientProvider>
-                    <Layout>{children}</Layout>
+                    <NextUIProvider>
+                        <Layout>{children}</Layout>
+                    </NextUIProvider>
                 </ClientProvider>
             </body>
         </html>

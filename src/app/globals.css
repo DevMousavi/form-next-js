@@ -83,19 +83,14 @@
     }
     .dropDownContainer {
         width: 80%;
+        font-size: 12px;
         padding: 5px 10px;
         border: 1px solid rgb(124, 58, 237);
         border-radius: 6px;
         cursor: pointer;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-    }
-    .labelContainer {
-        cursor: pointer;
-        color: rgb(124, 58, 237);
-        font-size: 14px;
-        text-wrap: nowrap;
+        justify-content: center;
     }
 }
 
