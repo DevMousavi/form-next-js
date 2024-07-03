@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { api } from "../services/config";
 import React, { useEffect, useState } from "react";
 import { result, senData } from "@/util/Types";
+import Loader from "./LoaderPages";
 
 import { Select, SelectItem } from "@nextui-org/react";
 
@@ -33,7 +34,7 @@ const Dropdown = (props: {
     }, []);
 
     if (listData?.length == 0) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     return (
