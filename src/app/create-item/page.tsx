@@ -7,6 +7,7 @@ import InputTextArea from "../../components/InputTextArea";
 import InputRange from "../../components/InputRange";
 import { myFormData } from "../../util/Types";
 import DropdownGet from "../../components/DropDownGet";
+import Btn from "../../components/Btn";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -65,9 +66,32 @@ const page = () => {
             <DropdownGet
                 name="mealType"
                 url="/Sale/v1/Item/hidigimenu/MealType"
-                label="نوع"
+                label="وعده غذایی"
                 setFormData={setFormData}
             />
+            <InputText
+                label={"موجودی روزانه"}
+                setFormData={setFormData}
+                formNameItem="dailyInventory"
+            />
+            <InputText
+                label={"2موجودی روزانه"}
+                setFormData={setFormData}
+                formNameItem="fixDailyInventory"
+            />
+            <DropdownGet
+                name="lable"
+                url="/Sale/v1/Item/hidigimenu/ShowLable"
+                label="برچسب"
+                setFormData={setFormData}
+            />
+            <DropdownGet
+                name="displayStatus"
+                url="/Sale/v1/Item/hidigimenu/DisplayStatus"
+                label="وضعیت نمایش"
+                setFormData={setFormData}
+            />
+            <Btn setFormData={setFormData} formNameItem="status" />
         </div>
     );
 };
@@ -83,11 +107,11 @@ export default page;
 //     "parentId": 0,                        +
 //     "preparationTime": 0,                 +
 //     "mealType": 0,                        +
-//     "dailyInventory": 0,
-//     "fixDailyInventory": 0,
-//     "lable": 0,
-//     "displayStatus": 0,
-//     "status": 0,
+//     "dailyInventory": 0,                  +
+//     "fixDailyInventory": 0,               +
+//     "lable": 0,                           +
+//     "displayStatus": 0,                   +
+//     "status": 0,                          +
 //     "price": 0,
 //     "priceAfterDiscount": 0,
 //     "packagingCost": 0,

@@ -17,7 +17,7 @@ const Dropdown = (props: {
     const [listData, setListData] = useState<resultGet[]>([]);
 
     const { data } = useQuery({
-        queryKey: ["mealType"],
+        queryKey: [props.name],
         queryFn: async (): Promise<any> => {
             const request = await api.get(props.url);
             return request;
