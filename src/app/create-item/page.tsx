@@ -8,6 +8,7 @@ import InputRange from "../../components/InputRange";
 import { myFormData } from "../../util/Types";
 import DropdownGet from "../../components/DropDownGet";
 import Btn from "../../components/Btn";
+import Tags from "../../components/Tags";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -92,6 +93,31 @@ const page = () => {
                 setFormData={setFormData}
             />
             <Btn setFormData={setFormData} formNameItem="status" />
+            <InputText
+                label={"قیمت واقعی محصول"}
+                setFormData={setFormData}
+                formNameItem="price"
+            />
+            <InputText
+                label={"قیمت محصول بعد از تخفیف"}
+                setFormData={setFormData}
+                formNameItem="priceAfterDiscount"
+            />
+            <InputText
+                label={"هزینه بسته بندی"}
+                setFormData={setFormData}
+                formNameItem="packagingCost"
+            />
+            <InputRange
+                formNameItem="taxPercent"
+                label="درصد مالیات"
+                setFormData={setFormData}
+            />
+            <Tags
+                formNameItem="tags"
+                label="تگ های محصول را وارد کنید"
+                setFormData={setFormData}
+            />
         </div>
     );
 };
@@ -112,10 +138,10 @@ export default page;
 //     "lable": 0,                           +
 //     "displayStatus": 0,                   +
 //     "status": 0,                          +
-//     "price": 0,
-//     "priceAfterDiscount": 0,
-//     "packagingCost": 0,
-//     "taxPercent": 0,
+//     "price": 0,                           +
+//     "priceAfterDiscount": 0,              +
+//     "packagingCost": 0,                   +
+//     "taxPercent": 0,                      +
 //     "tags": [
 //       "string"
 //     ],

@@ -92,6 +92,12 @@
         align-items: center;
         justify-content: center;
     }
+    .absoluteCenter {
+        position: absolute;
+        bottom: -3px;
+        left: 10px;
+        transform: translateY(-50%);
+    }
 }
 
 * {
@@ -133,7 +139,7 @@ textarea {
 .coolinput label.text {
     font-size: 0.75rem;
     color: rgb(124, 58, 237);
-    width: 30%;
+    width: 50%;
     position: relative;
     top: 0.5rem;
     margin: 0 0 0 7px;
