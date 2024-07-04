@@ -1,6 +1,6 @@
 "use client";
 import { myFormData } from "../util/Types";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Tags = ({
     formNameItem,
@@ -33,10 +33,6 @@ const Tags = ({
             [name]: tags,
         }));
     };
-
-    useEffect(() => {
-        console.log(tags);
-    }, [tags]);
 
     return (
         <>

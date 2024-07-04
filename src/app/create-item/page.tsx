@@ -9,6 +9,7 @@ import { myFormData } from "../../util/Types";
 import DropdownGet from "../../components/DropDownGet";
 import Btn from "../../components/Btn";
 import Tags from "../../components/Tags";
+import SendFile from "../../components/SendFile";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -118,6 +119,7 @@ const page = () => {
                 label="تگ های محصول را وارد کنید"
                 setFormData={setFormData}
             />
+            <SendFile setFormData={setFormData} />
         </div>
     );
 };
@@ -142,15 +144,15 @@ export default page;
 //     "priceAfterDiscount": 0,              +
 //     "packagingCost": 0,                   +
 //     "taxPercent": 0,                      +
-//     "tags": [
-//       "string"
-//     ],
-//     "itemFiles": [
-//       {
-//         "fileName": "string",
-//         "fileType": 0
-//       }
-//     ],
+//     "tags": [                             +
+//       "string"                            +
+//     ],                                    +
+//     "itemFiles": [                        +
+//       {                                   +
+//         "fileName": "string",             +
+//         "fileType": 0                     +
+//       }                                   +
+//     ],                                    +
 //     "weekdays": [
 //       0
 //     ],
