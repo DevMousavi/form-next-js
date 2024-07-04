@@ -1,39 +1,34 @@
 "use client";
 
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { api } from "../services/config";
 import React, { useEffect, useState } from "react";
-import { result, senData } from "@/util/Types";
+import { resultGet } from "@/util/Types";
 import { myFormData } from "@/util/Types";
 
 import { Select, SelectItem } from "@nextui-org/react";
 
-const DropdownGet = (props: {
+const Dropdown = (props: {
     url: string;
     label: string;
-    dataSend: senData;
     setFormData: React.Dispatch<React.SetStateAction<myFormData[]>>;
     name: string;
 }): JSX.Element => {
-    const [listData, setListData] = useState<result[]>([]);
+    const [listData, setListData] = useState<resultGet[]>([]);
 
-    const { mutate } = useMutation({
-        mutationFn: async (data: senData): Promise<any> => {
-            const request = await api.post(props.url, data);
+    const { data } = useQuery({
+        queryKey: ["mealType"],
+        queryFn: async (): Promise<any> => {
+            const request = await api.get(props.url);
             return request;
         },
     });
 
     useEffect(() => {
-        mutate(props.dataSend, {
-            onSuccess: (data) => {
-                setListData(data.data.result.items);
-            },
-            onError: (error) => {
-                console.log(error);
-            },
-        });
-    }, []);
+        if (data && data.status === 200 && data.data.status === 0) {
+            setListData(data.data.result);
+        }
+    }, [data]);
 
     const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = event.target;
@@ -53,10 +48,10 @@ const DropdownGet = (props: {
             >
                 {listData?.map((item) => (
                     <SelectItem
-                        key={item.id}
+                        key={item.value}
                         className="text-primaryColor font-bold"
                     >
-                        {item.name}
+                        {item.content}
                     </SelectItem>
                 ))}
             </Select>
@@ -64,4 +59,4 @@ const DropdownGet = (props: {
     );
 };
 
-export default DropdownGet;
+export default Dropdown;

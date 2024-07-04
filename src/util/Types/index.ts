@@ -18,6 +18,10 @@ export interface result {
     lastUpdate: string;
     persianDateLastUpdate: string;
 }
+export interface resultGet {
+    value: string;
+    content: string;
+}
 
 export interface myFormData {
     categoriesId: string;

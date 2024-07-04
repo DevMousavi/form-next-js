@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import InputTextArea from "../../components/InputTextArea";
 import InputRange from "../../components/InputRange";
 import { myFormData } from "../../util/Types";
+import DropdownGet from "../../components/DropDownGet";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -56,6 +57,17 @@ const page = () => {
                 label="اولویت محصول را مشخص کنید"
                 setFormData={setFormData}
             />
+            <InputRange
+                formNameItem="preparationTime"
+                label="مدت زمان را مشخص کنید"
+                setFormData={setFormData}
+            />
+            <DropdownGet
+                name="mealType"
+                url="/Sale/v1/Item/hidigimenu/MealType"
+                label="نوع"
+                setFormData={setFormData}
+            />
         </div>
     );
 };
@@ -69,8 +81,8 @@ export default page;
 //     "description": "string",              +
 //     "priority": 0,                        +
 //     "parentId": 0,                        +
-//     "preparationTime": 0,
-//     "mealType": 0,
+//     "preparationTime": 0,                 +
+//     "mealType": 0,                        +
 //     "dailyInventory": 0,
 //     "fixDailyInventory": 0,
 //     "lable": 0,
