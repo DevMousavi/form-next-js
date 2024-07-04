@@ -3,6 +3,7 @@
 import InputText from "../../components/InputText";
 import Dropdown from "../../components/DropDown";
 import React, { useState } from "react";
+import InputTextArea from "../../components/InputTextArea";
 
 const page = () => {
     const [formData, setFormData] = useState<FormData[]>([]);
@@ -37,6 +38,16 @@ const page = () => {
                 setFormData={setFormData}
                 formNameItem="name"
             />
+            <InputText
+                label={"کد محصول"}
+                setFormData={setFormData}
+                formNameItem="itemCode"
+            />
+            <InputTextArea
+                formNameItem="description"
+                label="توضیحات مورد نظر را وارد کنید..."
+                setFormData={setFormData}
+            />
         </div>
     );
 };
@@ -44,9 +55,9 @@ const page = () => {
 export default page;
 
 // {
-//     "categoriesId": 0,
-//     "name": "string",
-//     "itemCode": "stri",
+//     "categoriesId": 0,                    +
+//     "name": "string",                     +
+//     "itemCode": "stri",                   +
 //     "description": "string",
 //     "priority": 0,
 //     "parentId": 0,

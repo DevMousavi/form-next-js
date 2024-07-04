@@ -19,7 +19,7 @@ const InputText = ({
     return (
         <>
             <div className="coolinput">
-                <label htmlFor="input" className="text">
+                <label htmlFor="input" className="text text-nowrap">
                     {label}
                 </label>
                 <input
@@ -27,7 +27,7 @@ const InputText = ({
                     placeholder={`${label} را وارد کنید...`}
                     name={formNameItem}
                     className="input"
-                    onChange={changeHandler}
+                    onBlur={changeHandler}
                 />
             </div>
         </>
