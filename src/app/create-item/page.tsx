@@ -10,6 +10,7 @@ import DropdownGet from "../../components/DropDownGet";
 import Btn from "../../components/Btn";
 import Tags from "../../components/Tags";
 import SendFile from "../../components/SendFile";
+import SelectDays from "../../components/SelectDays";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -120,6 +121,11 @@ const page = () => {
                 setFormData={setFormData}
             />
             <SendFile setFormData={setFormData} />
+            <SelectDays
+                url="/Sale/v1/Item/hidigimenu/Weekdays"
+                setFormData={setFormData}
+                formNameItem="weekdays"
+            />
         </div>
     );
 };
@@ -153,9 +159,9 @@ export default page;
 //         "fileType": 0                     +
 //       }                                   +
 //     ],                                    +
-//     "weekdays": [
-//       0
-//     ],
+//     "weekdays": [                         +
+//       0                                   +
+//     ],                                    +
 //     "itemPrinters": [
 //       {
 //         "serviceTypeId": 0,
