@@ -19,36 +19,36 @@ export interface result {
     persianDateLastUpdate: string;
 }
 
-export interface FormData {
-    categoriesId: number;
+export interface myFormData {
+    categoriesId: string;
     name: string;
     itemCode: string;
     description: string;
-    priority: number;
-    parentId: number;
-    preparationTime: number;
-    mealType: number;
-    dailyInventory: number;
-    fixDailyInventory: number;
-    label: number;
-    displayStatus: number;
-    status: number;
-    price: number;
-    priceAfterDiscount: number;
-    packagingCost: number;
-    taxPercent: number;
+    priority: string;
+    parentId: string;
+    preparationTime: string;
+    mealType: string;
+    dailyInventory: string;
+    fixDailyInventory: string;
+    label: string;
+    displayStatus: string;
+    status: string;
+    price: string;
+    priceAfterDiscount: string;
+    packagingCost: string;
+    taxPercent: string;
     tags: string[];
     itemFiles: [
         {
             fileName: string;
-            fileType: number;
+            fileType: string;
         }
     ];
-    weekdays: number[];
+    weekdays: string[];
     itemPrinters: [
         {
-            serviceTypeId: number;
-            printerId: number;
+            serviceTypeId: string;
+            printerId: string;
         }
     ];
 }

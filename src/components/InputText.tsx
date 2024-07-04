@@ -1,4 +1,5 @@
 import React from "react";
+import { myFormData } from "@/util/Types";
 
 const InputText = ({
     label,
@@ -6,7 +7,7 @@ const InputText = ({
     formNameItem,
 }: {
     label: string;
-    setFormData: React.Dispatch<React.SetStateAction<FormData[]>>;
+    setFormData: React.Dispatch<React.SetStateAction<myFormData[]>>;
     formNameItem: string;
 }) => {
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +17,7 @@ const InputText = ({
             [name]: value,
         }));
     };
+
     return (
         <>
             <div className="coolinput">

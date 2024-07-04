@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { api } from "../services/config";
 import React, { useEffect, useState } from "react";
 import { result, senData } from "@/util/Types";
-import Loader from "./LoaderPages";
+import { myFormData } from "@/util/Types";
 
 import { Select, SelectItem } from "@nextui-org/react";
 
@@ -12,7 +12,7 @@ const Dropdown = (props: {
     url: string;
     label: string;
     dataSend: senData;
-    setFormData: React.Dispatch<React.SetStateAction<FormData[]>>;
+    setFormData: React.Dispatch<React.SetStateAction<myFormData[]>>;
     name: string;
 }): JSX.Element => {
     const [listData, setListData] = useState<result[]>([]);

@@ -4,9 +4,11 @@ import InputText from "../../components/InputText";
 import Dropdown from "../../components/DropDown";
 import React, { useState } from "react";
 import InputTextArea from "../../components/InputTextArea";
+import InputRange from "../../components/InputRange";
+import { myFormData } from "../../util/Types";
 
 const page = () => {
-    const [formData, setFormData] = useState<FormData[]>([]);
+    const [formData, setFormData] = useState<myFormData[]>([]);
     console.log("formData : ", formData);
 
     const dataSend = {
@@ -17,6 +19,7 @@ const page = () => {
         sortBy: "id",
         sortOrder: 0,
     };
+
     return (
         <div className="mobileContainer shadowLayOut  py-9 items-center justify-start flex-col gap-4">
             <h2 className="font-bold text-primaryColor flex flex-row-reverse gap-2 items-center justify-center border border-solid border-primaryColor px-3 py-2 rounded-md containerTextShadow">
@@ -48,6 +51,11 @@ const page = () => {
                 label="توضیحات مورد نظر را وارد کنید..."
                 setFormData={setFormData}
             />
+            <InputRange
+                formNameItem="priority"
+                label="اولویت محصول را مشخص کنید"
+                setFormData={setFormData}
+            />
         </div>
     );
 };
@@ -58,9 +66,9 @@ export default page;
 //     "categoriesId": 0,                    +
 //     "name": "string",                     +
 //     "itemCode": "stri",                   +
-//     "description": "string",
-//     "priority": 0,
-//     "parentId": 0,
+//     "description": "string",              +
+//     "priority": 0,                        +
+//     "parentId": 0,                        +
 //     "preparationTime": 0,
 //     "mealType": 0,
 //     "dailyInventory": 0,

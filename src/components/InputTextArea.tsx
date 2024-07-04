@@ -1,4 +1,5 @@
 import React from "react";
+import { myFormData } from "@/util/Types";
 
 const InputTextArea = ({
     formNameItem,
@@ -7,7 +8,7 @@ const InputTextArea = ({
 }: {
     formNameItem: string;
     label: string;
-    setFormData: React.Dispatch<React.SetStateAction<FormData[]>>;
+    setFormData: React.Dispatch<React.SetStateAction<myFormData[]>>;
 }) => {
     const changeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const { name, value } = event.target;
