@@ -19,7 +19,7 @@ const SelectDays = ({
     url: string;
     setFormData: React.Dispatch<React.SetStateAction<myFormData[]>>;
 }) => {
-    const [days, setDays] = useState<string[]>([]);
+    const [days, setDays] = useState<number[]>([]);
     useEffect(() => {
         setFormData((prevFormData) => ({
             ...prevFormData,
@@ -36,7 +36,7 @@ const SelectDays = ({
     });
 
     const selectDaysHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedDay = event.target.value;
+        const selectedDay = Number(event.target.value);
         if (event.target.checked) {
             setDays([...days, selectedDay]);
         } else {

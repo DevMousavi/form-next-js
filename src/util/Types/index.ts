@@ -24,35 +24,35 @@ export interface resultGet {
 }
 
 export interface myFormData {
-    categoriesId: string;
+    categoriesId: number;
     name: string;
     itemCode: string;
     description: string;
-    priority: string;
-    parentId: string;
-    preparationTime: string;
-    mealType: string;
-    dailyInventory: string;
-    fixDailyInventory: string;
-    label: string;
-    displayStatus: string;
-    status: string;
-    price: string;
-    priceAfterDiscount: string;
-    packagingCost: string;
-    taxPercent: string;
+    priority: number;
+    parentId: null;
+    preparationTime: number;
+    mealType: number;
+    dailyInventory: number;
+    fixDailyInventory: number;
+    label: number;
+    displayStatus: number;
+    status: number;
+    price: number;
+    priceAfterDiscount: number;
+    packagingCost: number;
+    taxPercent: number;
     tags: string[];
     itemFiles: [
         {
             fileName: string;
-            fileType: string;
+            fileType: number;
         }
     ];
-    weekdays: string[];
+    weekdays: number[];
     itemPrinters: [
         {
-            serviceTypeId: string;
-            printerId: string;
+            serviceTypeId: number;
+            printerId: number;
         }
     ];
 }

@@ -39,7 +39,8 @@ const DropdownGet = (props: {
         const { name, value } = event.target;
         props.setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: value,
+            [name]: Number(value),
+            parentId: null,
         }));
     };
 

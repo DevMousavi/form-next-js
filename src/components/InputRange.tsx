@@ -14,7 +14,7 @@ const InputRange = ({
         const { name, value } = event.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: value,
+            [name]: Number(value),
         }));
     };
 

@@ -12,10 +12,39 @@ import Tags from "../../components/Tags";
 import SendFile from "../../components/SendFile";
 import SelectDays from "../../components/SelectDays";
 import ItemPrinters from "../../components/ItemPrinters";
+import { useMutation } from "@tanstack/react-query";
+import { api } from "@/services/config";
+import InputNumber from "@/components/InputNumber";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
-    console.log("formData : ", formData);
+    // console.log("formData : ", formData);
+
+    const { mutate } = useMutation({
+        mutationFn: async (data: myFormData): Promise<any> => {
+            const request = await api.post(
+                "/Sale/v1/Item/hidigimenu/Create",
+                data,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            return request;
+        },
+    });
+
+    const sendFormHandler = (event) => {
+        mutate(formData, {
+            onSuccess: (data) => {
+                console.log(data);
+            },
+            onError: (error) => {
+                console.log(error);
+            },
+        });
+    };
 
     const dataSend = {
         totalCount: 0,
@@ -73,12 +102,12 @@ const page = () => {
                 label="وعده غذایی"
                 setFormData={setFormData}
             />
-            <InputText
+            <InputNumber
                 label={"موجودی روزانه"}
                 setFormData={setFormData}
                 formNameItem="dailyInventory"
             />
-            <InputText
+            <InputNumber
                 label={"2موجودی روزانه"}
                 setFormData={setFormData}
                 formNameItem="fixDailyInventory"
@@ -96,17 +125,17 @@ const page = () => {
                 setFormData={setFormData}
             />
             <Btn setFormData={setFormData} formNameItem="status" />
-            <InputText
+            <InputNumber
                 label={"قیمت واقعی محصول"}
                 setFormData={setFormData}
                 formNameItem="price"
             />
-            <InputText
+            <InputNumber
                 label={"قیمت محصول بعد از تخفیف"}
                 setFormData={setFormData}
                 formNameItem="priceAfterDiscount"
             />
-            <InputText
+            <InputNumber
                 label={"هزینه بسته بندی"}
                 setFormData={setFormData}
                 formNameItem="packagingCost"
@@ -132,6 +161,12 @@ const page = () => {
                 setFormData={setFormData}
                 name="itemPrinters"
             />
+            <button
+                className="btn hover:btn-hover w-[80%] mx-auto h-12"
+                onClick={sendFormHandler}
+            >
+                ارسال فرم
+            </button>
         </div>
     );
 };

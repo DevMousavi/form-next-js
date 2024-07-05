@@ -58,7 +58,6 @@ const SendFile: React.FC<SendFileProps> = ({ setFormData }) => {
             const formData = new FormData();
             formData.append("File", file);
             formData.append("UploadType", "2");
-            console.log(formData);
 
             mutate(formData);
         }
