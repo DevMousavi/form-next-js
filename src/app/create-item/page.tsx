@@ -11,6 +11,7 @@ import Btn from "../../components/Btn";
 import Tags from "../../components/Tags";
 import SendFile from "../../components/SendFile";
 import SelectDays from "../../components/SelectDays";
+import ItemPrinters from "../../components/ItemPrinters";
 
 const page = () => {
     const [formData, setFormData] = useState<myFormData[]>([]);
@@ -125,6 +126,11 @@ const page = () => {
                 url="/Sale/v1/Item/hidigimenu/Weekdays"
                 setFormData={setFormData}
                 formNameItem="weekdays"
+            />
+            <ItemPrinters
+                dataSend={dataSend}
+                setFormData={setFormData}
+                name="itemPrinters"
             />
         </div>
     );
